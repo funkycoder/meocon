@@ -1,0 +1,225 @@
+2013/09/02 19:03:56 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_address`, CONSTRAINT `tbl_address_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_address` (`address`, `addresstype`, `phone`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in C:\xampp\htdocs\MeoCon\protected\controllers\AddressController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:03:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_address`, CONSTRAINT `tbl_address_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_address` (`address`, `addresstype`, `phone`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\AddressController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): AddressController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('address/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=address/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=address/create
+---
+2013/09/02 19:05:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_user`, CONSTRAINT `tbl_user_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_user` (`username`, `email`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\xampp\htdocs\MeoCon\protected\controllers\UserController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:05:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_user`, CONSTRAINT `tbl_user_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_user` (`username`, `email`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\UserController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('user/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=user/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=user/create
+---
+2013/09/02 19:08:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_user`, CONSTRAINT `tbl_user_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_user` (`username`, `email`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\xampp\htdocs\MeoCon\protected\controllers\UserController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:08:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_user`, CONSTRAINT `tbl_user_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_user` (`username`, `email`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\UserController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('user/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=user/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=user/create
+---
+2013/09/02 19:10:56 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_address`, CONSTRAINT `tbl_address_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_address` (`address`, `addresstype`, `phone`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in C:\xampp\htdocs\MeoCon\protected\controllers\AddressController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:10:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_address`, CONSTRAINT `tbl_address_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_address` (`address`, `addresstype`, `phone`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\AddressController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): AddressController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('address/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=address/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=address/create
+---
+2013/09/02 19:13:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_contact`, CONSTRAINT `tbl_contact_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_contact` (`fullname`, `jobname`, `jobtype`, `educationlevel`, `email`, `mobilephone`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10).
+in C:\xampp\htdocs\MeoCon\protected\controllers\ContactController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:13:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_contact`, CONSTRAINT `tbl_contact_ibfk_3` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_contact` (`fullname`, `jobname`, `jobtype`, `educationlevel`, `email`, `mobilephone`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\ContactController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): ContactController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('contact/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=contact/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=contact/create
+---
+2013/09/02 19:16:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_staff`, CONSTRAINT `tbl_staff_ibfk_5` FOREIGN KEY (`address_id`) REFERENCES `tbl_address` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_staff` (`fullname`, `dob`, `sex`, `jobtype`, `email`, `mobilephone`, `address_id`, `class_id`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:16:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_staff`, CONSTRAINT `tbl_staff_ibfk_5` FOREIGN KEY (`address_id`) REFERENCES `tbl_address` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_staff` (`fullname`, `dob`, `sex`, `jobtype`, `email`, `mobilephone`, `address_id`, `class_id`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StaffController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('staff/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=staff/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=staff/create
+---
+2013/09/02 19:24:52 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_staff`, CONSTRAINT `tbl_staff_ibfk_6` FOREIGN KEY (`class_id`) REFERENCES `tbl_class` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_staff` (`fullname`, `dob`, `sex`, `jobtype`, `email`, `mobilephone`, `address_id`, `class_id`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 19:24:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_staff`, CONSTRAINT `tbl_staff_ibfk_6` FOREIGN KEY (`class_id`) REFERENCES `tbl_class` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_staff` (`fullname`, `dob`, `sex`, `jobtype`, `email`, `mobilephone`, `address_id`, `class_id`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StaffController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('staff/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=staff/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=staff/create
+---
+2013/09/02 20:07:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_student`, CONSTRAINT `tbl_student_ibfk_10` FOREIGN KEY (`class_id`) REFERENCES `tbl_class` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_student` (`fullname`, `dob`, `sex`, `totalsiblings`, `siblingorder`, `address_id`, `mobilephone`, `father_id`, `mother_id`, `class_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13).
+in C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 20:07:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_student`, CONSTRAINT `tbl_student_ibfk_10` FOREIGN KEY (`class_id`) REFERENCES `tbl_class` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_student` (`fullname`, `dob`, `sex`, `totalsiblings`, `siblingorder`, `address_id`, `mobilephone`, `father_id`, `mother_id`, `class_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StudentController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('student/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=student/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=student/create
+---
+2013/09/02 20:08:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_student`, CONSTRAINT `tbl_student_ibfk_11` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_student` (`fullname`, `dob`, `sex`, `totalsiblings`, `siblingorder`, `address_id`, `mobilephone`, `father_id`, `mother_id`, `class_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13).
+in C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/02 20:08:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_student`, CONSTRAINT `tbl_student_ibfk_11` FOREIGN KEY (`create_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_student` (`fullname`, `dob`, `sex`, `totalsiblings`, `siblingorder`, `address_id`, `mobilephone`, `father_id`, `mother_id`, `class_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StudentController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('student/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=student/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=student/create
+---
