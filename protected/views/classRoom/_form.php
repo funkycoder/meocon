@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Các mục có dấu <span class="required">*</span> không được bỏ trống.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 

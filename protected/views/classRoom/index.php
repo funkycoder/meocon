@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Class Rooms',
+	'Các lớp học',
 );
 
 $this->menu=array(
-	array('label'=>'Create ClassRoom', 'url'=>array('create')),
-	array('label'=>'Manage ClassRoom', 'url'=>array('admin')),
+	array('label'=>'Tạo lớp học mới', 'url'=>array('create')),
+	array('label'=>'Quản lý các lớp', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Class Rooms</h1>
+<h1>Liệt kê các lớp học</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

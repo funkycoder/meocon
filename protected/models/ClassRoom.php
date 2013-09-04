@@ -77,13 +77,13 @@ class ClassRoom extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
-			'create_time' => 'Create Time',
-			'create_user_id' => 'Create User',
-			'update_time' => 'Update Time',
-			'update_user_id' => 'Update User',
+			'id' => 'Mã số lớp',
+			'name' => 'Tên lớp',
+			'description' => 'Mô tả',
+			'create_time' => 'Khởi tạo',
+			'create_user_id' => 'Người tạo',
+			'update_time' => 'Cập nhật',
+			'update_user_id' => 'Người cập nhật',
 		);
 	}
 

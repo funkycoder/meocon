@@ -2,31 +2,51 @@
 /* @var $this ClassRoomController */
 /* @var $model ClassRoom */
 
-$this->breadcrumbs=array(
-	'Class Rooms'=>array('index'),
-	$model->name,
+$this->breadcrumbs = array(
+    'Các lớp học' => array('index'),
+    $model->name,
 );
 
-$this->menu=array(
-	array('label'=>'List ClassRoom', 'url'=>array('index')),
-	array('label'=>'Create ClassRoom', 'url'=>array('create')),
-	array('label'=>'Update ClassRoom', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete ClassRoom', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ClassRoom', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => "Cập nhật lớp {$model->name}", 'url' => array('update', 'id' => $model->id)),
+    array('label' => "Xóa lớp {$model->name}", 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Bạn muốn xóa lớp học này?')),
+    array('label' => 'Liệt kê các lớp học', 'url' => array('index')),
+    array('label' => 'Tạo lớp học mới', 'url' => array('create')),
+    array('label' => 'Quản lý các lớp', 'url' => array('admin')),
 );
 ?>
 
-<h1>View ClassRoom #<?php echo $model->id; ?></h1>
+<h1>Thông tin lớp <?php echo $model->name; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'name',
-		'description',
-		'create_time',
-		'create_user_id',
-		'update_time',
-		'update_user_id',
-	),
-)); ?>
+<?php
+$this->widget('zii.widgets.CDetailView', array(
+    'data' => $model,
+    'attributes' => array(
+        'id',
+        'name',
+        'description',
+        'create_time',
+        'create_user_id',
+        'update_time',
+        'update_user_id',
+    ),
+));
+//Display Teachers in this classroom
+//Use CListView to diplay a list of teachers 
+?>
+<br/>
+<h1>Giáo viên trong lớp</h1>
+<?php
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider' => $teacherDataProvider,
+    'itemView' => '/staff/_view',
+));
+?>
+<br/>
+<h1>Học sinh trong lớp</h1>
+<?php
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider' => $studentDataProvider,
+    'itemView' => '/student/_view',
+))
+?>
