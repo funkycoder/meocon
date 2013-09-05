@@ -33,120 +33,131 @@
  * @property StudentStudent[] $studentStudents
  * @property StudentStudent[] $studentStudents1
  */
-class Student extends CActiveRecord
-{
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Student the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+class Student extends CActiveRecord {
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'tbl_student';
-	}
+    /**
+     * @ return string Father's name
+     */
+    public function getFatherName() {
+        //classRoom defined in relations
+        return isset($this->father) ? CHtml::encode($this->father->fullname) : "Dữ liệu trống";
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('fullname, dob, sex, totalsiblings, siblingorder', 'required'),
-			array('sex, totalsiblings, siblingorder, mobilephone', 'numerical', 'integerOnly'=>true),
-			array('fullname', 'length', 'max'=>255),
-			array('address_id, father_id, mother_id, class_id, create_user_id, update_user_id', 'length', 'max'=>11),
-			array('create_time, update_time', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, fullname, dob, sex, totalsiblings, siblingorder, address_id, mobilephone, father_id, mother_id, class_id, create_time, create_user_id, update_time, update_user_id', 'safe', 'on'=>'search'),
-		);
-	}
+    /**
+     * @ return string Mother's name
+     */
+    public function getMotherName() {
+        //classRoom defined in relations
+        return isset($this->mother) ? CHtml::encode($this->mother->fullname) : "Dữ liệu trống";
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'measurements' => array(self::HAS_MANY, 'Measurement', 'student_id'),
-			'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
-			'class' => array(self::BELONGS_TO, 'Class', 'class_id'),
-			'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
-			'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
-			'father' => array(self::BELONGS_TO, 'Contact', 'father_id'),
-			'mother' => array(self::BELONGS_TO, 'Contact', 'mother_id'),
-			'tblContacts' => array(self::MANY_MANY, 'Contact', 'tbl_student_contact(student_id, contact_id)'),
-			'tblStaffs' => array(self::MANY_MANY, 'Staff', 'tbl_student_staff(student_id, staff_id)'),
-			'studentStudents' => array(self::HAS_MANY, 'StudentStudent', 'student2_id'),
-			'studentStudents1' => array(self::HAS_MANY, 'StudentStudent', 'student1_id'),
-		);
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return Student the static model class
+     */
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'fullname' => 'Fullname',
-			'dob' => 'Dob',
-			'sex' => 'Sex',
-			'totalsiblings' => 'Totalsiblings',
-			'siblingorder' => 'Siblingorder',
-			'address_id' => 'Address',
-			'mobilephone' => 'Mobilephone',
-			'father_id' => 'Father',
-			'mother_id' => 'Mother',
-			'class_id' => 'Class',
-			'create_time' => 'Create Time',
-			'create_user_id' => 'Create User',
-			'update_time' => 'Update Time',
-			'update_user_id' => 'Update User',
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName() {
+        return 'tbl_student';
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules() {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('fullname, dob, sex, totalsiblings, siblingorder', 'required'),
+            array('sex, totalsiblings, siblingorder, mobilephone', 'numerical', 'integerOnly' => true),
+            array('fullname', 'length', 'max' => 255),
+            array('address_id, father_id, mother_id, class_id, create_user_id, update_user_id', 'length', 'max' => 11),
+            array('create_time, update_time', 'safe'),
+            // The following rule is used by search().
+            // Please remove those attributes that should not be searched.
+            array('id, fullname, dob, sex, totalsiblings, siblingorder, address_id, mobilephone, father_id, mother_id, class_id, create_time, create_user_id, update_time, update_user_id', 'safe', 'on' => 'search'),
+        );
+    }
 
-		$criteria=new CDbCriteria;
+    /**
+     * @return array relational rules.
+     */
+    public function relations() {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'measurements' => array(self::HAS_MANY, 'Measurement', 'student_id'),
+            'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
+            'classRoom' => array(self::BELONGS_TO, 'ClassRoom', 'class_id'),
+            'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
+            'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
+            'father' => array(self::BELONGS_TO, 'Contact', 'father_id'),
+            'mother' => array(self::BELONGS_TO, 'Contact', 'mother_id'),
+            'tblContacts' => array(self::MANY_MANY, 'Contact', 'tbl_student_contact(student_id, contact_id)'),
+            'tblStaffs' => array(self::MANY_MANY, 'Staff', 'tbl_student_staff(student_id, staff_id)'),
+            'studentStudents' => array(self::HAS_MANY, 'StudentStudent', 'student2_id'),
+            'studentStudents1' => array(self::HAS_MANY, 'StudentStudent', 'student1_id'),
+        );
+    }
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('fullname',$this->fullname,true);
-		$criteria->compare('dob',$this->dob,true);
-		$criteria->compare('sex',$this->sex);
-		$criteria->compare('totalsiblings',$this->totalsiblings);
-		$criteria->compare('siblingorder',$this->siblingorder);
-		$criteria->compare('address_id',$this->address_id,true);
-		$criteria->compare('mobilephone',$this->mobilephone);
-		$criteria->compare('father_id',$this->father_id,true);
-		$criteria->compare('mother_id',$this->mother_id,true);
-		$criteria->compare('class_id',$this->class_id,true);
-		$criteria->compare('create_time',$this->create_time,true);
-		$criteria->compare('create_user_id',$this->create_user_id,true);
-		$criteria->compare('update_time',$this->update_time,true);
-		$criteria->compare('update_user_id',$this->update_user_id,true);
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels() {
+        return array(
+            'id' => 'Mã số học sinh',
+            'fullname' => 'Họ và tên',
+            'dob' => 'Ngày sinh',
+            'sex' => 'Giới',
+            'totalsiblings' => 'Số anh chị em',
+            'siblingorder' => 'Con thứ',
+            'address_id' => 'Địa chỉ',
+            'mobilephone' => 'ĐT di động',
+            'father_id' => 'Cha',
+            'mother_id' => 'Mẹ',
+            'class_id' => 'Lớp',
+            'create_time' => 'Khởi tạo',
+            'create_user_id' => 'Người tạo',
+            'update_time' => 'Cập nhật',
+            'update_user_id' => 'Người cập nhật',
+        );
+    }
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search() {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
+
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id, true);
+        $criteria->compare('fullname', $this->fullname, true);
+        $criteria->compare('dob', $this->dob, true);
+        $criteria->compare('sex', $this->sex);
+        $criteria->compare('totalsiblings', $this->totalsiblings);
+        $criteria->compare('siblingorder', $this->siblingorder);
+        $criteria->compare('address_id', $this->address_id, true);
+        $criteria->compare('mobilephone', $this->mobilephone);
+        $criteria->compare('father_id', $this->father_id, true);
+        $criteria->compare('mother_id', $this->mother_id, true);
+        $criteria->compare('class_id', $this->class_id, true);
+        $criteria->compare('create_time', $this->create_time, true);
+        $criteria->compare('create_user_id', $this->create_user_id, true);
+        $criteria->compare('update_time', $this->update_time, true);
+        $criteria->compare('update_user_id', $this->update_user_id, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
 }

@@ -19,7 +19,7 @@
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('sex')); ?>:</b>
-    <?php echo CHtml::encode($data->sexText); //use magic function for staff->getSexText()?>
+    <?php echo CHtml::encode(ModelHelper::getSexText($data->sex)); ?>
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('jobtype')); ?>:</b>

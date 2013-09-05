@@ -27,39 +27,6 @@
  * @property Student[] $tblStudents
  */
 class Staff extends CActiveRecord {
-    //Define sex
-
-    const SEX_MALE = 0;
-    const SEX_FEMALE = 1;
-
-    /**
-     * @return array list of possible sex type
-     */
-    public function getSexOptions() {
-        return array(self::SEX_FEMALE => 'Nữ', self::SEX_MALE => 'Nam');
-    }
-
-    /**
-     * @return array of allowed sex type
-     */
-    public function getAllowedSexType() {
-        return array(self::SEX_FEMALE, self::SEX_MALE);
-    }
-
-    /**
-     * @ return string get text value for sex
-     */
-    public function getSexText() {
-        $sexOptions = $this->sexOptions; //magic function
-        return isset($sexOptions[$this->sex]) ? $sexOptions[$this->sex] : 'Dữ liệu trống.';
-    }
-
-    /**
-     * @ return string get text value for sex
-     */
-    public function getClassName() {
-        return isset($this->class) ? CHtml::encode($this->class->name) : "Dữ liệu trống";
-    }
 
     /**
      * Returns the static model of the specified AR class.
@@ -104,7 +71,7 @@ class Staff extends CActiveRecord {
         return array(
             'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
             'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
-            'class' => array(self::BELONGS_TO, 'ClassRoom', 'class_id'),
+            'classRoom' => array(self::BELONGS_TO, 'ClassRoom', 'class_id'),
             'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
             'tblStudents' => array(self::MANY_MANY, 'Student', 'tbl_student_staff(staff_id, student_id)'),
         );

@@ -6,11 +6,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<?php echo CHtml::encode($data->id); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fullname')); ?>:</b>
-	<?php echo CHtml::encode($data->fullname); ?>
+	<?php echo CHtml::link(CHtml::encode($data->fullname),array('student/view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dob')); ?>:</b>
@@ -18,7 +18,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('sex')); ?>:</b>
-	<?php echo CHtml::encode($data->sex); ?>
+	<?php echo CHtml::encode(ModelHelper::getSexText($data->sex)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('totalsiblings')); ?>:</b>
