@@ -21,14 +21,6 @@
 	<?php echo CHtml::encode(ModelHelper::getSexText($data->sex)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('totalsiblings')); ?>:</b>
-	<?php echo CHtml::encode($data->totalsiblings); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('siblingorder')); ?>:</b>
-	<?php echo CHtml::encode($data->siblingorder); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('address_id')); ?>:</b>
 	<?php echo CHtml::encode($data->address_id); ?>
 	<br />

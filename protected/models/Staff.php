@@ -27,6 +27,46 @@
  * @property Student[] $tblStudents
  */
 class Staff extends CActiveRecord {
+    //Define sex
+
+    const JOB_TEACHER = 0;
+    const JOB_HELPER = 1;
+    const JOB_SECURITY = 2;
+    const JOB_COOK = 3;
+    const JOB_MAID = 4;
+    const JOB_PRINCIPAL = 5;
+    const JOB_VICE_PRINCIPAL = 6;
+    const JOB_CHAIRWOMAN = 7;
+
+    /**
+     * @return array list of possible job type
+     */
+    public function getJobOptions() {
+        return array(self::JOB_TEACHER => 'Giáo viên',
+            self::JOB_HELPER => 'Bảo mẫu',
+            self::JOB_SECURITY => 'Bảo vệ',
+            self::JOB_COOK => 'Nấu bếp',
+            self::JOB_MAID => 'Tạp vụ',
+            self::JOB_PRINCIPAL => 'Hiệu trưởng',
+            self::JOB_VICE_PRINCIPAL => 'Hiệu phó',
+            self::JOB_CHAIRWOMAN => 'Chủ tịch HĐQT');
+    }
+
+    /**
+     * @return array of allowed job type
+     */
+    public function getAllowedJobType() {
+        return array(self::JOB_TEACHER, self::JOB_HELPER, self::JOB_SECURITY, self::JOB_COOK,
+            self::JOB_MAID, self::JOB_PRINCIPAL, self::JOB_VICE_PRINCIPAL, self::JOB_CHAIRWOMAN);
+    }
+
+    /**
+     * @ return string get text value for sex_type
+     */
+    public function getJobText() {
+        $jobOptions = self::getJobOptions(); //magic function
+        return isset($jobOptions[$this->jobtype]) ? $jobOptions[$this->jobtype] : 'Dữ liệu trống.';
+    }
 
     /**
      * Returns the static model of the specified AR class.

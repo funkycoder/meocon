@@ -50,21 +50,20 @@ class ClassRoomController extends Controller {
      */
     public function actionView($id) {
         //Preparation to display Teachers associated with a class room
-        $class_id = $this->loadModel($id)->id;
-        $teacherDataProvider = new CActiveDataProvider('Staff', array(
+                $teacherDataProvider = new CActiveDataProvider('Staff', array(
             'criteria' => array(
                 'condition' => 'class_id=:class_id',
-                'params' => array(':class_id' => $class_id)
+                'params' => array(':class_id' => $id)
             ),
-            'pagination' => array('pagesize' => 1,),
+            'pagination' => array('pagesize' => 5,),
         ));
         //Display associated Students also
         $studentDataProvider = new CActiveDataProvider('Student', array(
             'criteria' => array(
                 'condition' => 'class_id=:class_id',
-                'params' => array(':class_id' => $class_id)
+                'params' => array(':class_id' => $id)
             ),
-            'pagination' => array('pagesize' => 1,),
+            'pagination' => array('pagesize' => ModelHelper::STUDENT_PER_PAGE,),
         ));
         $this->render('view', array(
             'model' => $this->loadModel($id),
@@ -133,7 +132,7 @@ class ClassRoomController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('ClassRoom');
+        $dataProvider = new CActiveDataProvider('ClassRoom',array('pagination'=>array('pagesize'=>  ModelHelper::ITEM_PER_PAGE)));
         $this->render('index', array(
             'dataProvider' => $dataProvider,
         ));

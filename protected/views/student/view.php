@@ -3,21 +3,21 @@
 /* @var $model Student */
 
 $this->breadcrumbs = array(
-    'Students' => array('index'),
-    $model->id,
+    'Học sinh' => array('index'),
+    $model->fullname,
 );
 
 $this->menu = array(
-    array('label' => 'List Student', 'url' => array('index')),
-    array('label' => 'Create Student', 'url' => array('create')),
-    array('label' => 'Update Student', 'url' => array('update', 'id' => $model->id)),
-    array('label' => 'Delete Student', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
-    array('label' => 'Manage Student', 'url' => array('admin')),
+    array('label' => 'Liệt kê tất cả học sinh', 'url' => array('index')),
+    array('label' => 'Tạo học sinh mới', 'url' => array('create')),
+    array('label' => "Cập nhật {$model->fullname}", 'url' => array('update', 'id' => $model->id)),
+    array('label' => "Xóa {$model->fullname}", 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => 'Are you sure you want to delete this item?')),
+    array('label' => 'Quản lý học sinh', 'url' => array('admin')),
 );
 ?>
 
-<h1>View Student #<?php echo $model->id; ?></h1>
-
+<h1>Thông tin chi tiết về <?php echo $model->fullname; ?></h1>
+<h2>(Học sinh lớp <?php echo CHtml::link(ModelHelper::getClassName($model->classRoom), array('/classRoom/view', 'id' => $model->classRoom->id)) ?>)</h2>
 <?php
 $this->widget('zii.widgets.CDetailView', array(
     'data' => $model,

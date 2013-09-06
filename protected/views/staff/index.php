@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Staffs',
+	'Nhân viên',
 );
 
 $this->menu=array(
-	array('label'=>'Create Staff', 'url'=>array('create')),
-	array('label'=>'Manage Staff', 'url'=>array('admin')),
+	array('label'=>'Tạo nhân viên mới', 'url'=>array('create')),
+	array('label'=>'Quản lý nhân viên', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Staffs</h1>
+<h1>Liệt kê nhân viên</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

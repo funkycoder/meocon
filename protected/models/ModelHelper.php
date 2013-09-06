@@ -11,8 +11,12 @@
  * @author Quan Nguyen
  */
 class ModelHelper {
-    //Define sex
+    //Define display parameters
 
+    const STUDENT_PER_PAGE = 20;
+    const ITEM_PER_PAGE = 20;
+
+    //Define sex
     const SEX_MALE = 0;
     const SEX_FEMALE = 1;
 
@@ -34,16 +38,26 @@ class ModelHelper {
      * @ return string get text value for sex_type
      */
     public static function getSexText($sex_type) {
-        $sexOptions = self::getSexOptions();//magic function
+        $sexOptions = self::getSexOptions(); //magic function
         return isset($sexOptions[$sex_type]) ? $sexOptions[$sex_type] : 'Dữ liệu trống.';
     }
- /**
+
+    /**
      * @ return string ClassRoom name
      */
     public static function getClassName(ClassRoom $classRoom_object) {
         //classRoom defined in relations
         return isset($classRoom_object) ? CHtml::encode($classRoom_object->name) : "Dữ liệu trống";
     }
+
+    /**
+     * @ return string a text field
+     */
+    public static function getTextField($text) {
+        //classRoom defined in relations
+        return isset($text) ? CHtml::encode($text) : "Dữ liệu trống";
+    }
+
 }
 
 ?>

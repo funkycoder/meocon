@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Students',
+	'Học sinh',
 );
 
 $this->menu=array(
-	array('label'=>'Create Student', 'url'=>array('create')),
-	array('label'=>'Manage Student', 'url'=>array('admin')),
+	array('label'=>'Tạo học sinh mới', 'url'=>array('create')),
+	array('label'=>'Quản lý học sinh', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Students</h1>
+<h1>Liệt kê tất cả học sinh</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

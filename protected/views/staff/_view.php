@@ -23,11 +23,11 @@
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('jobtype')); ?>:</b>
-    <?php echo CHtml::encode($data->jobtype); ?>
+    <?php echo CHtml::encode($data->getJobText()); ?>
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
-    <?php echo CHtml::encode($data->email); ?>
+    <?php echo ModelHelper::getTextField($data->email) ?>
     <br />
 
     <b><?php echo CHtml::encode($data->getAttributeLabel('mobilephone')); ?>:</b>
