@@ -42,23 +42,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'address_id'); ?>
-		<?php echo $form->textField($model,'address_id',array('size'=>11,'maxlength'=>11)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'mobilephone'); ?>
 		<?php echo $form->textField($model,'mobilephone'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'father_id'); ?>
-		<?php echo $form->textField($model,'father_id',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->label($model,'homeaddress'); ?>
+		<?php echo $form->textField($model,'homeaddress'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'mother_id'); ?>
-		<?php echo $form->textField($model,'mother_id',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->label($model,'homephone'); ?>
+		<?php echo $form->textField($model,'homephone',array('size'=>11,'maxlength'=>11)); ?>
 	</div>
 
 	<div class="row">
@@ -87,7 +82,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Tìm'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

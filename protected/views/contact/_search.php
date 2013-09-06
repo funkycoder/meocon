@@ -27,11 +27,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'jobtype'); ?>
-		<?php echo $form->textField($model,'jobtype'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'educationlevel'); ?>
 		<?php echo $form->textField($model,'educationlevel'); ?>
 	</div>
@@ -42,8 +37,23 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'website'); ?>
+		<?php echo $form->textField($model,'website',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'mobilephone'); ?>
 		<?php echo $form->textField($model,'mobilephone',array('size'=>11,'maxlength'=>11)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'workaddress'); ?>
+		<?php echo $form->textField($model,'workaddress',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'workphone'); ?>
+		<?php echo $form->textField($model,'workphone',array('size'=>11,'maxlength'=>11)); ?>
 	</div>
 
 	<div class="row">

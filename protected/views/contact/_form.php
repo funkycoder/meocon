@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	 <p class="note">Các mục có dấu <span class="required">*</span> không được bỏ trống.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -28,14 +28,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'jobtype'); ?>
-		<?php echo $form->textField($model,'jobtype'); ?>
-		<?php echo $form->error($model,'jobtype'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'educationlevel'); ?>
-		<?php echo $form->textField($model,'educationlevel'); ?>
+		<?php echo $form->dropDownList($model,'educationlevel',$model->getEduLevelOptions()); ?>
 		<?php echo $form->error($model,'educationlevel'); ?>
 	</div>
 
@@ -46,9 +40,27 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'website'); ?>
+		<?php echo $form->textField($model,'website',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'website'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'mobilephone'); ?>
 		<?php echo $form->textField($model,'mobilephone',array('size'=>11,'maxlength'=>11)); ?>
 		<?php echo $form->error($model,'mobilephone'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'workaddress'); ?>
+		<?php echo $form->textField($model,'workaddress',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'workaddress'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'workphone'); ?>
+		<?php echo $form->textField($model,'workphone',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->error($model,'workphone'); ?>
 	</div>
 
 	<div class="row">
@@ -82,7 +94,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Tạo' : 'Lưu'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

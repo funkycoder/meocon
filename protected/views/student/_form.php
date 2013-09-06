@@ -47,27 +47,21 @@
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'address_id'); ?>
-        <?php echo $form->textField($model, 'address_id', array('size' => 11, 'maxlength' => 11)); ?>
-        <?php echo $form->error($model, 'address_id'); ?>
-    </div>
-
-    <div class="row">
         <?php echo $form->labelEx($model, 'mobilephone'); ?>
         <?php echo $form->textField($model, 'mobilephone'); ?>
         <?php echo $form->error($model, 'mobilephone'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'father_id'); ?>
-        <?php echo $form->textField($model, 'father_id', array('size' => 11, 'maxlength' => 11)); ?>
-        <?php echo $form->error($model, 'father_id'); ?>
+        <?php echo $form->labelEx($model, 'homeaddress'); ?>
+        <?php echo $form->textField($model, 'homeaddress', array('size' => 60, 'maxlength' => 255)); ?>
+        <?php echo $form->error($model, 'homeaddress'); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'mother_id'); ?>
-        <?php echo $form->textField($model, 'mother_id', array('size' => 11, 'maxlength' => 11)); ?>
-        <?php echo $form->error($model, 'mother_id'); ?>
+        <?php echo $form->labelEx($model, 'homephone'); ?>
+        <?php echo $form->textField($model, 'homephone', array('size' => 11, 'maxlength' => 11)); ?>
+        <?php echo $form->error($model, 'homephone'); ?>
     </div>
 
     <div class="row">
@@ -101,7 +95,7 @@
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Tạo' : 'Lưu'); ?>
     </div>
 
     <?php $this->endWidget(); ?>

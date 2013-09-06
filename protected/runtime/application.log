@@ -524,3 +524,50 @@ Stack trace:
 REQUEST_URI=/MeoCon/index.php?r=student/create
 HTTP_REFERER=http://localhost/MeoCon/index.php?r=student/create
 ---
+2013/09/07 05:49:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_contact`, CONSTRAINT `tbl_contact_ibfk_4` FOREIGN KEY (`update_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_contact` (`fullname`, `jobname`, `educationlevel`, `email`, `website`, `mobilephone`, `workaddress`, `workphone`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12).
+in C:\xampp\htdocs\MeoCon\protected\controllers\ContactController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/07 05:49:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_contact`, CONSTRAINT `tbl_contact_ibfk_4` FOREIGN KEY (`update_user_id`) REFERENCES `tbl_user` (`id`) ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_contact` (`fullname`, `jobname`, `educationlevel`, `email`, `website`, `mobilephone`, `workaddress`, `workphone`, `notes`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\ContactController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): ContactController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('contact/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=contact/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=contact/create
+---
+2013/09/07 06:00:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\MeoCon\protected\controllers\ContactController.php:155
+Stack trace:
+#0 C:\xampp\htdocs\MeoCon\protected\controllers\ContactController.php(55): ContactController->loadModel('1')
+#1 [internal function]: ContactController->actionView('1')
+#2 C:\xampp\htdocs\YiiRoot\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ContactController), Array)
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ContactController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('view')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('contact/view')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=contact/view&id=1
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=contact
+---

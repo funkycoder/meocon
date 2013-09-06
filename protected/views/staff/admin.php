@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Quản lý nhân viên mới</h1>
+<h1>Quản lý nhân viên</h1>
 
 <p>
     Có thể dùng các dấu so sánh như (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -54,9 +54,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
         'sex',
         'jobtype',
         'email',
+        'mobilephone',
+        'homeaddress',
+        'homephone',     
         /*
-          'mobilephone',
-          'address_id',
           'class_id',
           'notes',
           'create_time',

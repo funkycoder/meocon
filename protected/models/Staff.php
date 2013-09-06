@@ -11,7 +11,8 @@
  * @property integer $jobtype
  * @property string $email
  * @property string $mobilephone
- * @property string $address_id
+ * @property string $homeaddress
+ * @property string $homephone
  * @property string $class_id
  * @property string $notes
  * @property string $create_time
@@ -21,10 +22,9 @@
  *
  * The followings are the available model relations:
  * @property User $updateUser
- * @property Address $address
  * @property Class $class
  * @property User $createUser
- * @property Student[] $tblStudents
+ * @property Student[] $students
  */
 class Staff extends CActiveRecord {
     //Define sex
@@ -55,7 +55,7 @@ class Staff extends CActiveRecord {
     /**
      * @return array of allowed job type
      */
-    public function getAllowedJobType() {
+    public static function getAllowedJobType() {
         return array(self::JOB_TEACHER, self::JOB_HELPER, self::JOB_SECURITY, self::JOB_COOK,
             self::JOB_MAID, self::JOB_PRINCIPAL, self::JOB_VICE_PRINCIPAL, self::JOB_CHAIRWOMAN);
     }
@@ -64,7 +64,7 @@ class Staff extends CActiveRecord {
      * @ return string get text value for sex_type
      */
     public function getJobText() {
-        $jobOptions = self::getJobOptions(); //magic function
+        $jobOptions = self::getJobOptions();
         return isset($jobOptions[$this->jobtype]) ? $jobOptions[$this->jobtype] : 'Dữ liệu trống.';
     }
 
@@ -91,17 +91,17 @@ class Staff extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('fullname, dob, sex, jobtype, mobilephone', 'required'),
+            array('fullname, dob, sex, jobtype, mobilephone,homeaddress', 'required'),
             array('sex, jobtype', 'numerical', 'integerOnly' => true),
-            array('fullname, email, notes', 'length', 'max' => 255),
-            array('mobilephone, address_id, class_id, create_user_id, update_user_id', 'length', 'max' => 11),
+            array('fullname, homeaddress,email, notes', 'length', 'max' => 255),
+            array('mobilephone,homephone, class_id, create_user_id, update_user_id', 'length', 'max' => 11),
             array('create_time, update_time', 'safe'),
              //CRangeValidator :
             array('sex','in','range'=>  ModelHelper::getAllowedSexType()),
             array('jobtype','in','range'=>  self::getAllowedJobType()),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, fullname, dob, sex, jobtype, email, mobilephone, address_id, class_id, notes, create_time, create_user_id, update_time, update_user_id', 'safe', 'on' => 'search'),
+            array('id, fullname, dob, sex, jobtype, email, mobilephone, homeaddress,homephone, class_id, notes, create_time, create_user_id, update_time, update_user_id', 'safe', 'on' => 'search'),
         );
     }
 
@@ -113,10 +113,9 @@ class Staff extends CActiveRecord {
         // class name for the relations automatically generated below.
         return array(
             'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
-            'address' => array(self::BELONGS_TO, 'Address', 'address_id'),
             'classRoom' => array(self::BELONGS_TO, 'ClassRoom', 'class_id'),
             'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
-            'tblStudents' => array(self::MANY_MANY, 'Student', 'tbl_student_staff(staff_id, student_id)'),
+            'students' => array(self::MANY_MANY, 'Student', 'tbl_student_staff(staff_id, student_id)'),
         );
     }
 
@@ -131,8 +130,9 @@ class Staff extends CActiveRecord {
             'sex' => 'Giới',
             'jobtype' => 'Công việc',
             'email' => 'Email',
-            'mobilephone' => 'Di động',
-            'address_id' => 'Địa chỉ',
+            'mobilephone' => 'ĐT di động',
+            'homeaddress' => 'Địa chỉ nhà',
+            'homephone'=>'ĐT nhà',
             'class_id' => 'Mã số lớp',
             'notes' => 'Ghi chú',
             'create_time' => 'Khởi tạo',
@@ -159,7 +159,8 @@ class Staff extends CActiveRecord {
         $criteria->compare('jobtype', $this->jobtype);
         $criteria->compare('email', $this->email, true);
         $criteria->compare('mobilephone', $this->mobilephone, true);
-        $criteria->compare('address_id', $this->address_id, true);
+        $criteria->compare('homeaddress', $this->homeaddress, true);
+        $criteria->compare('homephone', $this->homephone, true);
         $criteria->compare('class_id', $this->class_id, true);
         $criteria->compare('notes', $this->notes, true);
         $criteria->compare('create_time', $this->create_time, true);

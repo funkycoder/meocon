@@ -35,10 +35,12 @@
     <br />
 
     <?php /*
-      <b><?php echo CHtml::encode($data->getAttributeLabel('address_id')); ?>:</b>
-      <?php echo CHtml::encode($data->address_id); ?>
+      <b><?php echo CHtml::encode($data->getAttributeLabel('homeaddress')); ?>:</b>
+      <?php echo CHtml::encode($data->homeaddress); ?>
       <br />
-
+      <b><?php echo CHtml::encode($data->getAttributeLabel('homephone')); ?>:</b>
+      <?php echo CHtml::encode($data->homephone); ?>
+      <br />
       <b><?php echo CHtml::encode($data->getAttributeLabel('class_id')); ?>:</b>
       <?php echo CHtml::encode($data->class_id); ?>
       <br />

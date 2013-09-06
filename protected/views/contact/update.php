@@ -3,19 +3,19 @@
 /* @var $model Contact */
 
 $this->breadcrumbs=array(
-	'Contacts'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	'Người thân'=>array('index'),
+	$model->fullname=>array('view','id'=>$model->id),
+	'Cập nhật',
 );
 
 $this->menu=array(
-	array('label'=>'List Contact', 'url'=>array('index')),
-	array('label'=>'Create Contact', 'url'=>array('create')),
-	array('label'=>'View Contact', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Contact', 'url'=>array('admin')),
+	array('label'=>'Liệt kê người thân', 'url'=>array('index')),
+	array('label'=>'Tạo người thân mới', 'url'=>array('create')),
+	array('label'=>"Chi tiết {$model->fullname}", 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Quản lý mục người thân', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Contact <?php echo $model->id; ?></h1>
+<h1>Cập nhật người thân <?php echo $model->fullname; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
