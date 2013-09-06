@@ -3,16 +3,16 @@
 /* @var $model Student */
 
 $this->breadcrumbs=array(
-	'Students'=>array('index'),
-	'Create',
+	'Học sinh'=>array('index'),
+	'Tạo mới',
 );
 
 $this->menu=array(
-	array('label'=>'List Student', 'url'=>array('index')),
-	array('label'=>'Manage Student', 'url'=>array('admin')),
+	array('label'=>'Liệt kê tất cả học sinh', 'url'=>array('index')),
+	array('label'=>'Quản lý học sinh', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Student</h1>
+<h1>Tạo học sinh mới</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

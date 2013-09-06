@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Các mục có dấu <span class="required">*</span> không được bỏ trống.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -29,13 +29,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'sex'); ?>
-		<?php echo $form->textField($model,'sex'); ?>
+		<?php echo $form->dropDownList($model,'sex',  ModelHelper::getSexOptions()); ?>
 		<?php echo $form->error($model,'sex'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'jobtype'); ?>
-		<?php echo $form->textField($model,'jobtype'); ?>
+		<?php echo $form->dropDownList($model,'jobtype',$model->getJobOptions()); ?>
 		<?php echo $form->error($model,'jobtype'); ?>
 	</div>
 
@@ -58,8 +58,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'class_id'); ?>
-		<?php echo $form->textField($model,'class_id',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->labelEx($model,'Lớp'); ?>
+		<?php echo $form->dropDownList($model,'class_id',  ClassRoom::getAllClassroom()); ?>
 		<?php echo $form->error($model,'class_id'); ?>
 	</div>
 

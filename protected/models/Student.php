@@ -99,10 +99,9 @@ class Student extends CActiveRecord {
             'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
             'father' => array(self::BELONGS_TO, 'Contact', 'father_id'),
             'mother' => array(self::BELONGS_TO, 'Contact', 'mother_id'),
-            'tblContacts' => array(self::MANY_MANY, 'Contact', 'tbl_student_contact(student_id, contact_id)'),
-            'tblStaffs' => array(self::MANY_MANY, 'Staff', 'tbl_student_staff(student_id, staff_id)'),
-            'studentStudents' => array(self::HAS_MANY, 'StudentStudent', 'student2_id'),
-            'studentStudents1' => array(self::HAS_MANY, 'StudentStudent', 'student1_id'),
+            'relatives' => array(self::MANY_MANY, 'Contact', 'tbl_student_contact(student_id, contact_id)'),
+            'staffs' => array(self::MANY_MANY, 'Staff', 'tbl_student_staff(student_id, staff_id)'),
+            'relatedStudents' => array(self::HAS_MANY, 'StudentStudent', 'student_id'),
         );
     }
 
@@ -143,8 +142,6 @@ class Student extends CActiveRecord {
         $criteria->compare('fullname', $this->fullname, true);
         $criteria->compare('dob', $this->dob, true);
         $criteria->compare('sex', $this->sex);
-        $criteria->compare('totalsiblings', $this->totalsiblings);
-        $criteria->compare('siblingorder', $this->siblingorder);
         $criteria->compare('address_id', $this->address_id, true);
         $criteria->compare('mobilephone', $this->mobilephone);
         $criteria->compare('father_id', $this->father_id, true);

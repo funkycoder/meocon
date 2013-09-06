@@ -13,8 +13,9 @@
 class ModelHelper {
     //Define display parameters
 
-    const STUDENT_PER_PAGE = 20;
-    const ITEM_PER_PAGE = 20;
+    const STUDENT_PER_PAGE = 10;
+    const STAFF_PER_PAGE = 3;
+    const ITEM_PER_PAGE = 10;
 
     //Define sex
     const SEX_MALE = 0;

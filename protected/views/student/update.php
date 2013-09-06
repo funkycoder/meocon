@@ -3,19 +3,19 @@
 /* @var $model Student */
 
 $this->breadcrumbs=array(
-	'Students'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	'Học sinh'=>array('index'),
+	$model->fullname=>array('view','id'=>$model->id),
+	'Cập nhật',
 );
 
 $this->menu=array(
-	array('label'=>'List Student', 'url'=>array('index')),
-	array('label'=>'Create Student', 'url'=>array('create')),
-	array('label'=>'View Student', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Student', 'url'=>array('admin')),
+	array('label'=>'Liệt kê tất cả học sinh', 'url'=>array('index')),
+	array('label'=>'Tạo học sinh mới', 'url'=>array('create')),
+	array('label'=>"Chi tiết {$model->fullname}", 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Quản lý học sinh', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Student <?php echo $model->id; ?></h1>
+<h1>Cập nhật học sinh <?php echo $model->fullname; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

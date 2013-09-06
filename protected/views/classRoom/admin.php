@@ -3,13 +3,13 @@
 /* @var $model ClassRoom */
 
 $this->breadcrumbs=array(
-	'Class Rooms'=>array('index'),
-	'Manage',
+	'Các lớp học'=>array('index'),
+	'Quản lý',
 );
 
 $this->menu=array(
-	array('label'=>'List ClassRoom', 'url'=>array('index')),
-	array('label'=>'Create ClassRoom', 'url'=>array('create')),
+	array('label'=>'Liệt kê các lớp học', 'url'=>array('index')),
+	array('label'=>'Tạo lớp học mới', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Class Rooms</h1>
+<h1>Quản lý lớp học</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+    Có thể dùng các dấu so sánh như (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+    or <b>=</b>) ở trước các giá trị cần tìm để lọc kết quả.
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Tìm kiếm nâng cao','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,

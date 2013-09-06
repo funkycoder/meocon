@@ -55,7 +55,7 @@ class ClassRoomController extends Controller {
                 'condition' => 'class_id=:class_id',
                 'params' => array(':class_id' => $id)
             ),
-            'pagination' => array('pagesize' => 5,),
+            'pagination' => array('pagesize' => ModelHelper::STAFF_PER_PAGE,),
         ));
         //Display associated Students also
         $studentDataProvider = new CActiveDataProvider('Student', array(

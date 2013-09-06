@@ -49,7 +49,7 @@ class Staff extends CActiveRecord {
             self::JOB_MAID => 'Tạp vụ',
             self::JOB_PRINCIPAL => 'Hiệu trưởng',
             self::JOB_VICE_PRINCIPAL => 'Hiệu phó',
-            self::JOB_CHAIRWOMAN => 'Chủ tịch HĐQT');
+            self::JOB_CHAIRWOMAN => 'HĐQT');
     }
 
     /**
@@ -96,6 +96,9 @@ class Staff extends CActiveRecord {
             array('fullname, email, notes', 'length', 'max' => 255),
             array('mobilephone, address_id, class_id, create_user_id, update_user_id', 'length', 'max' => 11),
             array('create_time, update_time', 'safe'),
+             //CRangeValidator :
+            array('sex','in','range'=>  ModelHelper::getAllowedSexType()),
+            array('jobtype','in','range'=>  self::getAllowedJobType()),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, fullname, dob, sex, jobtype, email, mobilephone, address_id, class_id, notes, create_time, create_user_id, update_time, update_user_id', 'safe', 'on' => 'search'),

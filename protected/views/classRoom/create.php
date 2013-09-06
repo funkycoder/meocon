@@ -3,16 +3,16 @@
 /* @var $model ClassRoom */
 
 $this->breadcrumbs=array(
-	'Class Rooms'=>array('index'),
-	'Create',
+	'Các lớp học'=>array('index'),
+	'Tạo mới',
 );
 
 $this->menu=array(
-	array('label'=>'List ClassRoom', 'url'=>array('index')),
-	array('label'=>'Manage ClassRoom', 'url'=>array('admin')),
+	array('label'=>'Liết kê các lớp học', 'url'=>array('index')),
+	array('label'=>'Quản lý lớp học', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create ClassRoom</h1>
+<h1>Tạo lớp học mới</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

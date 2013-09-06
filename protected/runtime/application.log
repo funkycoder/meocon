@@ -429,3 +429,98 @@ REQUEST_URI=/MeoCon/index.php?r=staff/view&id=1
 in C:\xampp\htdocs\MeoCon\protected\views\staff\view.php (20)
 in C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php (62)
 in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/06 20:03:46 [error] [exception.CException] exception 'CException' with message 'Staff and its behaviors do not have a method or closure named "getAllowdJobType".' in C:\xampp\htdocs\YiiRoot\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(226): CComponent->__call('getAllowdJobTyp...', Array)
+#1 C:\xampp\htdocs\MeoCon\protected\models\Staff.php(101): CActiveRecord->__call('getAllowdJobTyp...', Array)
+#2 C:\xampp\htdocs\MeoCon\protected\models\Staff.php(101): Staff->getAllowdJobType()
+#3 C:\xampp\htdocs\YiiRoot\framework\base\CModel.php(282): Staff->rules()
+#4 C:\xampp\htdocs\YiiRoot\framework\base\CModel.php(259): CModel->createValidators()
+#5 C:\xampp\htdocs\YiiRoot\framework\base\CModel.php(302): CModel->getValidators('fullname')
+#6 C:\xampp\htdocs\YiiRoot\framework\web\helpers\CHtml.php(1197): CModel->isAttributeRequired('fullname')
+#7 C:\xampp\htdocs\YiiRoot\framework\web\widgets\CActiveForm.php(563): CHtml::activeLabelEx(Object(Staff), 'fullname', Array)
+#8 C:\xampp\htdocs\MeoCon\protected\views\staff\_form.php(19): CActiveForm->labelEx(Object(Staff), 'fullname')
+#9 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\MeoCon\protected\views\staff\create.php(18): CController->renderPartial('_form', Array)
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#17 C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php(83): CController->render('create', Array)
+#18 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StaffController->actionCreate()
+#19 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#22 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#24 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#26 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#27 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#28 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('staff/create')
+#29 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/MeoCon/index.php?r=staff/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=staff/view&id=2
+---
+2013/09/06 20:15:42 [error] [exception.CException] exception 'CException' with message 'Property "Staff.Lớp" is not defined.' in C:\xampp\htdocs\YiiRoot\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(144): CComponent->__get('L???p')
+#1 C:\xampp\htdocs\YiiRoot\framework\web\helpers\CHtml.php(2158): CActiveRecord->__get('L???p')
+#2 C:\xampp\htdocs\YiiRoot\framework\web\helpers\CHtml.php(1515): CHtml::resolveValue(Object(Staff), 'L???p')
+#3 C:\xampp\htdocs\YiiRoot\framework\web\widgets\CActiveForm.php(764): CHtml::activeDropDownList(Object(Staff), 'L???p', Array, Array)
+#4 C:\xampp\htdocs\MeoCon\protected\views\staff\_form.php(62): CActiveForm->dropDownList(Object(Staff), 'L???p', Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\MeoCon\protected\views\staff\create.php(18): CController->renderPartial('_form', Array)
+#9 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#13 C:\xampp\htdocs\MeoCon\protected\controllers\StaffController.php(83): CController->render('create', Array)
+#14 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StaffController->actionCreate()
+#15 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#18 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#22 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#24 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('staff/create')
+#25 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/MeoCon/index.php?r=staff/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=staff/view&id=2
+---
+2013/09/06 21:51:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_student`, CONSTRAINT `tbl_student_ibfk_8` FOREIGN KEY (`father_id`) REFERENCES `tbl_contact` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_student` (`fullname`, `dob`, `sex`, `siblingorder`, `totalsiblings`, `address_id`, `mobilephone`, `father_id`, `mother_id`, `class_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13).
+in C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php (73)
+in C:\xampp\htdocs\MeoCon\index.php (13)
+2013/09/06 21:51:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`meocon`.`tbl_student`, CONSTRAINT `tbl_student_ibfk_8` FOREIGN KEY (`father_id`) REFERENCES `tbl_contact` (`id`) ON DELETE SET NULL ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `tbl_student` (`fullname`, `dob`, `sex`, `siblingorder`, `totalsiblings`, `address_id`, `mobilephone`, `father_id`, `mother_id`, `class_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13)' in C:\xampp\htdocs\YiiRoot\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php(73): CActiveRecord->save()
+#3 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(50): StudentController->actionCreate()
+#4 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('create')
+#13 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('student/create')
+#14 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/MeoCon/index.php?r=student/create
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=student/create
+---

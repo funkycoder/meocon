@@ -3,16 +3,16 @@
 /* @var $model Staff */
 
 $this->breadcrumbs=array(
-	'Staffs'=>array('index'),
-	'Create',
+	'Nhân viên'=>array('index'),
+	'Tạo mới',
 );
 
 $this->menu=array(
-	array('label'=>'List Staff', 'url'=>array('index')),
-	array('label'=>'Manage Staff', 'url'=>array('admin')),
+	array('label'=>'Liệt kê tất cả nhân viên', 'url'=>array('index')),
+	array('label'=>'Quản lý nhân viên', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Staff</h1>
+<h1>Tạo nhân viên mới</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
