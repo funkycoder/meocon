@@ -1204,3 +1204,30 @@ Stack trace:
 REQUEST_URI=/MeoCon/index.php?r=student/view&id=7
 HTTP_REFERER=http://localhost/MeoCon/index.php?r=student/update&id=7
 ---
+2013/09/08 17:47:07 [error] [exception.CDbException] exception 'CDbException' with message 'Relation "contacts" is not defined in active record class "Student".' in C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveFinder.php:216
+Stack trace:
+#0 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveFinder.php(280): CActiveFinder->buildJoinTree(Object(CJoinElement), 'contacts')
+#1 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), Array)
+#2 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1295): CActiveFinder->__construct(Object(Student), Array)
+#3 C:\xampp\htdocs\YiiRoot\framework\db\ar\CActiveRecord.php(1426): CActiveRecord->query(Object(CDbCriteria))
+#4 C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php(143): CActiveRecord->findByPk('7')
+#5 C:\xampp\htdocs\MeoCon\protected\controllers\StudentController.php(52): StudentController->loadModel('7')
+#6 [internal function]: StudentController->actionView('7')
+#7 C:\xampp\htdocs\YiiRoot\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(StudentController), Array)
+#8 C:\xampp\htdocs\YiiRoot\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(StudentController), Object(ReflectionMethod), Array)
+#9 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\YiiRoot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\YiiRoot\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\xampp\htdocs\YiiRoot\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(283): CController->run('view')
+#18 C:\xampp\htdocs\YiiRoot\framework\web\CWebApplication.php(142): CWebApplication->runController('student/view')
+#19 C:\xampp\htdocs\YiiRoot\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\MeoCon\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/MeoCon/index.php?r=student/view&id=7
+HTTP_REFERER=http://localhost/MeoCon/index.php?r=student
+---

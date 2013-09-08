@@ -59,6 +59,7 @@ class StudentController extends Controller {
      */
     public function actionCreate() {
         $model = new Student;
+        $contact = $this->createContact($model);
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -71,6 +72,7 @@ class StudentController extends Controller {
 
         $this->render('create', array(
             'model' => $model,
+            'contact'=>$contact,
         ));
     }
 
@@ -81,6 +83,7 @@ class StudentController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
+        $contact = $this->createContact($model);
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -93,6 +96,7 @@ class StudentController extends Controller {
 
         $this->render('update', array(
             'model' => $model,
+            'contact'=>$contact,
         ));
     }
 
@@ -140,7 +144,7 @@ class StudentController extends Controller {
      */
     public function loadModel($id) {
         //load also related contacts data
-        $model = Student::model()->with('studentContacts.contact','contacts')->findByPk($id);
+        $model = Student::model()->with('studentContacts', 'contacts')->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
@@ -155,6 +159,18 @@ class StudentController extends Controller {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
+    }
+
+    protected function createContact(Student $student) {
+        $contact = new Contact();
+        if (isset($_POST['Contact'])) {
+            $contact->attributes = $_POST['Contact'];
+            if ($student->addContact($contact)) {
+                Yii::app()->user->setFlash('contactAdded', "Đã thêm người thân của " . $student->fullname . "là" . CHtml::encode($contact->fullname));
+                $this->refresh();
+            }
+        }
+        return $contact;
     }
 
 }

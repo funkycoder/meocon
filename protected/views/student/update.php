@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Cập nhật học sinh <?php echo $model->fullname; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'contact'=>$contact)); ?>

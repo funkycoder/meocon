@@ -52,6 +52,16 @@ class Student extends CActiveRecord {
         return parent::beforeValidate();
     }
 
+    public function addContact(Contact $contact) {
+        if ($contact->isNewRecord()) {
+            $contact->save();
+            $studentContact = new StudentContact();
+            $studentContact->student_id = $this->id;
+            $studentContact->contact_id = $contact->id;
+            $studentContact->save();
+        }
+    }
+
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -99,8 +109,8 @@ class Student extends CActiveRecord {
             'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
             'staffs' => array(self::MANY_MANY, 'Staff', 'tbl_student_staff(student_id, staff_id)'),
             'students' => array(self::HAS_MANY, 'StudentStudent', 'student_id'),
-            'studentContacts' => array(self::HAS_MANY, 'StudentContact', 'student_id'),
-            'contacts'=>array(self::HAS_MANY,'Contact','contact_id','through'=>'studentContacts'),
+            'studentContacts' => array(self::HAS_MANY, 'StudentContact', 'student_id', 'with' => 'contact', 'together' => FALSE),
+            'contacts' => array(self::HAS_MANY, 'Contact', 'contact_id', 'through' => 'studentContacts'),
         );
     }
 

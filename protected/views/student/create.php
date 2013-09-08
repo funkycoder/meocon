@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Tạo học sinh mới</h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model,'contact'=>$contact)); ?>

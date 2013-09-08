@@ -85,46 +85,63 @@
     </div>
     <div class="row">
         <?php echo $form->labelEx($model, 'Người thân'); ?>
-        <ul class="contacts>">
-        <?php
-        if($model->contacts){
-            foreach ($model->contacts as $contact) {
-            echo "<li>" . $contact->getInfo() . "</li>";
-        }}else{
-            echo 'Dữ liệu trống';
+        <?php if (Yii::app()->user->hasFlash('contactAdded')) { ?>
+            <div class="flash-success">
+                <?php echo Yii::app()->user->getFlash('contactAdded'); ?>
+            </div>
+            <?php
+        } else {
+            echo $this->renderPartial('/Contact/_form', array(
+                'model' => $contact,
+            ));
         }
         ?>
-        </ul>
-        
     </div>
+    <div class="row">
+            <?php echo $form->labelEx($model, 'Người thân'); ?>
+        <ul class="contacts>">
+            <?php
+            if ($model->contacts) {
+                foreach ($model->contacts as $contact) {
+                    echo "<li>" . $contact->getInfo() . "</li>";
+                }
+            } else {
+                echo 'Dữ liệu trống';
+            }
+            ?>
+        </ul>
+
+    </div>
+
+
     <div class="row">
         <?php echo $form->labelEx($model, 'create_time'); ?>
         <?php echo $form->textField($model, 'create_time'); ?>
-        <?php echo $form->error($model, 'create_time'); ?>
+<?php echo $form->error($model, 'create_time'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'create_user_id'); ?>
         <?php echo $form->textField($model, 'create_user_id', array('size' => 11, 'maxlength' => 11)); ?>
-        <?php echo $form->error($model, 'create_user_id'); ?>
+<?php echo $form->error($model, 'create_user_id'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'update_time'); ?>
         <?php echo $form->textField($model, 'update_time'); ?>
-        <?php echo $form->error($model, 'update_time'); ?>
+<?php echo $form->error($model, 'update_time'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'update_user_id'); ?>
         <?php echo $form->textField($model, 'update_user_id', array('size' => 11, 'maxlength' => 11)); ?>
-        <?php echo $form->error($model, 'update_user_id'); ?>
+<?php echo $form->error($model, 'update_user_id'); ?>
     </div>
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Tạo' : 'Lưu'); ?>
+<?php echo CHtml::submitButton($model->isNewRecord ? 'Tạo' : 'Lưu'); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
 
 </div><!-- form -->
