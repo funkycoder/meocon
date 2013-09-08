@@ -34,6 +34,25 @@
 class Student extends CActiveRecord {
 
     /**
+     * Format datetime property (Details in the staff model)
+     */
+    protected function afterFind() {
+        // convert to display format
+        $this->dob = strtotime($this->dob);
+        $this->dob = date('d-m-Y', $this->dob);
+
+        parent::afterFind();
+    }
+
+    protected function beforeValidate() {
+        // convert to storage format
+        $this->dob = strtotime($this->dob);
+        $this->dob = date('Y-m-d', $this->dob);
+
+        return parent::beforeValidate();
+    }
+
+    /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
      * @return Student the static model class
@@ -78,9 +97,10 @@ class Student extends CActiveRecord {
             'classRoom' => array(self::BELONGS_TO, 'ClassRoom', 'class_id'),
             'createUser' => array(self::BELONGS_TO, 'User', 'create_user_id'),
             'updateUser' => array(self::BELONGS_TO, 'User', 'update_user_id'),
-            'relatives' => array(self::MANY_MANY, 'Contact', 'tbl_student_contact(student_id, contact_id)'),
             'staffs' => array(self::MANY_MANY, 'Staff', 'tbl_student_staff(student_id, staff_id)'),
             'students' => array(self::HAS_MANY, 'StudentStudent', 'student_id'),
+            'studentContacts' => array(self::HAS_MANY, 'StudentContact', 'student_id'),
+            'contacts'=>array(self::HAS_MANY,'Contact','contact_id','through'=>'studentContacts'),
         );
     }
 

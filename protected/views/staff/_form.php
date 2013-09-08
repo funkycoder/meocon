@@ -25,7 +25,20 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'dob'); ?>
-        <?php echo $form->textField($model, 'dob'); ?>
+        <?php
+        $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+            'name' => 'dob',
+            'attribute' => 'dob',
+            'model' => $model,
+            'options' => array(
+                'dateFormat' => 'dd-mm-yy',
+                'altFormat' => 'dd-mm-yy',
+                'changeMonth' => true,
+                'changeYear' => true,
+                'appendText' => ' ngày-tháng-năm',
+            ),
+        ));
+        ?> 
         <?php echo $form->error($model, 'dob'); ?>
     </div>
 

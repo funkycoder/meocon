@@ -32,12 +32,38 @@ $this->widget('zii.widgets.CDetailView', array(
         'mobilephone',
         'homeaddress',
         'homephone',
-        array('name' => 'Lớp',
-            'value' => ModelHelper::getClassName($model->classRoom)),
         'create_time',
         'create_user_id',
         'update_time',
         'update_user_id',
     ),
 ));
+?>
+<br/>
+<h1>Thông tin về người thân</h1>
+<?php
+if ($model->studentContacts) {
+    foreach ($model->studentContacts as $studentContact) {
+        echo "<h2>{$studentContact->getRelationshipText()} :</h2>";
+        $this->widget('zii.widgets.CDetailView', array(
+            'data' => $studentContact->contact,
+            'attributes' => array(
+                'id',
+                'fullname',
+                'jobname',
+                array('name' => 'educationlevel',
+                    'value' => $studentContact->contact->getEduLevelText()),
+                'email',
+                'website',
+                'mobilephone',
+                'workaddress',
+                'workphone',
+                'notes',
+            ),
+        ));
+        echo '<br/>';
+    }
+} else {
+    echo 'Dữ liệu trống.';
+}
 ?>

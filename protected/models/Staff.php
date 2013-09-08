@@ -39,6 +39,39 @@ class Staff extends CActiveRecord {
     const JOB_CHAIRWOMAN = 7;
 
     /**
+     * To display datetime property in one format and store it in a different format
+     * 
+     * Source: http://stackoverflow.com/questions/6811706/yii-how-to-change-datetime-format-displayed-on-the-view
+     * Version : 1.0
+     * Date : 07/09/2013
+     * Modified date: 
+     * Modified by :
+     * Reason:  
+     * Documents  Customization CActiveRecord provides a few placeholder methods that can be overridden in child classes to customize its workflow.
+      beforeValidate and afterValidate: these are invoked before and after validation is performed.
+      beforeSave and afterSave: these are invoked before and after saving an AR instance.
+      beforeDelete and afterDelete: these are invoked before and after an AR instance is deleted.
+      afterConstruct: this is invoked for every AR instance created using the new operator.
+      beforeFind: this is invoked before an AR finder is used to perform a query (e.g. find(), findAll()).
+      afterFind: this is invoked after every AR instance created as a result of query.
+     */
+    protected function afterFind() {
+        // convert to display format
+        $this->dob = strtotime($this->dob);
+        $this->dob = date('d-m-Y', $this->dob);
+
+        parent::afterFind();
+    }
+
+    protected function beforeValidate() {
+        // convert to storage format
+        $this->dob = strtotime($this->dob);
+        $this->dob = date('Y-m-d', $this->dob);
+
+        return parent::beforeValidate();
+    }
+
+    /**
      * @return array list of possible job type
      */
     public function getJobOptions() {
@@ -96,9 +129,9 @@ class Staff extends CActiveRecord {
             array('fullname, homeaddress,email, notes', 'length', 'max' => 255),
             array('mobilephone,homephone, class_id, create_user_id, update_user_id', 'length', 'max' => 11),
             array('create_time, update_time', 'safe'),
-             //CRangeValidator :
-            array('sex','in','range'=>  ModelHelper::getAllowedSexType()),
-            array('jobtype','in','range'=>  self::getAllowedJobType()),
+            //CRangeValidator :
+            array('sex', 'in', 'range' => ModelHelper::getAllowedSexType()),
+            array('jobtype', 'in', 'range' => self::getAllowedJobType()),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id, fullname, dob, sex, jobtype, email, mobilephone, homeaddress,homephone, class_id, notes, create_time, create_user_id, update_time, update_user_id', 'safe', 'on' => 'search'),
@@ -132,7 +165,7 @@ class Staff extends CActiveRecord {
             'email' => 'Email',
             'mobilephone' => 'ĐT di động',
             'homeaddress' => 'Địa chỉ nhà',
-            'homephone'=>'ĐT nhà',
+            'homephone' => 'ĐT nhà',
             'class_id' => 'Mã số lớp',
             'notes' => 'Ghi chú',
             'create_time' => 'Khởi tạo',

@@ -25,7 +25,21 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'dob'); ?>
-        <?php echo $form->textField($model, 'dob'); ?>
+        <?php
+        $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+            'name' => 'dob',
+            'attribute' => 'dob',
+            'model' => $model,
+            'options' => array(
+                'dateFormat' => 'dd-mm-yy',
+                'altFormat' => 'dd-mm-yy',
+                'changeMonth' => true,
+                'changeYear' => true,
+                'appendText' => ' ngày-tháng-năm',
+            ),
+        ));
+        ?> 
+
         <?php echo $form->error($model, 'dob'); ?>
     </div>
 
@@ -69,7 +83,20 @@
         <?php echo $form->dropDownList($model, 'class_id', ClassRoom::getAllClassroom()); ?>
         <?php echo $form->error($model, 'class_id'); ?>
     </div>
-
+    <div class="row">
+        <?php echo $form->labelEx($model, 'Người thân'); ?>
+        <ul class="contacts>">
+        <?php
+        if($model->contacts){
+            foreach ($model->contacts as $contact) {
+            echo "<li>" . $contact->getInfo() . "</li>";
+        }}else{
+            echo 'Dữ liệu trống';
+        }
+        ?>
+        </ul>
+        
+    </div>
     <div class="row">
         <?php echo $form->labelEx($model, 'create_time'); ?>
         <?php echo $form->textField($model, 'create_time'); ?>

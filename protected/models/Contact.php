@@ -62,6 +62,12 @@ class Contact extends CActiveRecord {
     }
 
     /**
+     * @return string contact info
+     */
+    public function getInfo(){
+        return "Ông/Bà: <b> {$this->fullname} </b> Điện thoại: {$this->mobilephone} Nghề nghiệp: {$this->jobname} ";
+    }
+    /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
      * @return Contact the static model class
